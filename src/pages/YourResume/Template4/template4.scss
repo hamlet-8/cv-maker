@@ -1,0 +1,43 @@
+$blue: #0a4884;
+$green: #01bd01;
+
+.yourresume {
+  &__content-tamplate4 {
+    width: 554px;
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: 16px;
+      padding: 5px;
+      background-color: rgba(#000, 0.1);
+      text-transform: uppercase;
+    }
+
+    h4 {
+      font-size: 14px;
+    }
+    span {
+      font-size: 13px;
+      padding: 5px;
+    }
+  }
+
+  &__contact-tamplate4 {
+    span {
+      color: #969696;
+    }
+  }
+
+  &__second-block-tamplate4 {
+    margin-top: 30px;
+    & > div {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+  }
+}

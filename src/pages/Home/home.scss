@@ -1,0 +1,57 @@
+$blue: #0a4884;
+$green: #01bd01;
+
+h2 {
+  font-size: 36px;
+}
+
+.home-section {
+  height: calc(100vh - 55px);
+  background-color: $blue;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    // border: 1px solid red;
+    position: relative;
+
+    & img {
+      width: 1000px;
+      height: 1000px;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      transform: translate(-70%, -20%);
+    }
+  }
+  &__offer-structure {
+    width: 500px;
+    & > * {
+      margin-bottom: 50px;
+    }
+  }
+  & h1 {
+    font-size: 48px;
+    color: #fff;
+  }
+  & span {
+    font-size: 30px;
+    color: #fff;
+  }
+  &__button {
+    border: none;
+    color: #fff;
+    background-color: $green;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}

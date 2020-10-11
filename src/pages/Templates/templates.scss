@@ -1,0 +1,59 @@
+.templates {
+  height: calc(100vh - 140px);
+  text-align: center;
+
+  &__title {
+    margin-top: 20px;
+
+    & h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__templates-blocks {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__template {
+    width: 270px;
+    height: 370px;
+    box-shadow: 0 0 5px rgba(#000000, 0.25);
+    border-radius: 5px;
+    transition: 0.4s;
+    cursor: pointer;
+    &:hover {
+      margin-top: -10px;
+      box-shadow: 0 10px 20px rgba(#000000, 0.25);
+    }
+  }
+
+  &__template1 {
+    background-image: url(../../img/cv-template1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__template2 {
+    background-image: url(../../img/cv-template2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__template3 {
+    background-image: url(../../img/cv-template3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__template4 {
+    background-image: url(../../img/cv-template4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

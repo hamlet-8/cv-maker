@@ -16,8 +16,14 @@ export const Skills = (props) => {
     if (props.skills.trim() === '') {
       setWarning('Fill in the Skills field')
       setWarningInput('skills');
-    } else {
-      setWarning(false)
+    }
+  }
+
+  const toggleBtn = () => {
+    if(props.skills.trim() === '') {
+      return false
+    }else {
+      return true
     }
   }
 
@@ -50,12 +56,14 @@ export const Skills = (props) => {
             <NavLink to="/education" className="skills__buttonBack ">
               Back
           </NavLink>
-            {props.skills.trim() === '' ?
+            {toggleBtn() === false &&
               <div className="skills__button" onClick={onContinueContact}>
                 Continue
-          </div> : <NavLink to="/summary" className="skills__button">
-                Continue
-          </NavLink>}
+              </div>}
+           {toggleBtn() === true &&
+            <NavLink to="/summary" className="skills__button">
+                  Continue
+            </NavLink>}
           </div>
 
         </div>

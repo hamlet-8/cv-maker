@@ -51,25 +51,9 @@ const YourResume = ({
       });
     }
 
-    const onTemplate1Change = (event) => {
-        event = "template1";
+      const onTemplateChange = (event) => {
         setTemplate(event);
-      };
-
-     const onTemplate2Change = (event) => {
-        event = "template2";
-        setTemplate(event);
-      };
-
-      const onTemplate3Change = (event) => {
-        event = "template3";
-        setTemplate(event);
-      };
-
-      const onTemplate4Change = (event) => {
-        event = "template4";
-        setTemplate(event);
-      };
+      }
   return (
     <div className="yourresume">
       <ButtonTemplates />
@@ -187,16 +171,16 @@ const YourResume = ({
         </div>
 
         <div className="yourresume__templates">
-              <div className="yourresume__template1" onClick={onTemplate1Change}>
+              <div className="yourresume__template1" onClick={() => onTemplateChange('template1')}>
                
               </div>
-              <div className="yourresume__template2" onClick={onTemplate2Change}>
+              <div className="yourresume__template2" onClick={() => onTemplateChange('template2')}>
                
               </div>
-              <div className="yourresume__template3" onClick={onTemplate3Change}>
+              <div className="yourresume__template3" onClick={() => onTemplateChange('template3')}>
                 
               </div>
-              <div className="yourresume__template4" onClick={onTemplate4Change}>
+              <div className="yourresume__template4" onClick={() => onTemplateChange('template4')}>
                
               </div>
         </div>

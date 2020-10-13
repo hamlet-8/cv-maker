@@ -1,9 +1,7 @@
 import React from "react";
 // import { browserHistory } from "react-router";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { createStore } from "redux";
-import rootReducer from "./store/reducers";
-import { Provider } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home/Home";
@@ -18,12 +16,11 @@ import YourResume from "./pages/YourResume/YourResume";
 
 // import YourResumeList from "./pages/YourResume/YourResumeList";
 
-const store = createStore(rootReducer);
+
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
+    <div>
         {/* <button onClick={browserHistory.goBack}>Go Back</button> */}
         <Header />
         <Switch>
@@ -40,8 +37,7 @@ function App() {
           {/* <Route path={"/your-resume-list"} component={YourResumeList} /> */}
         </Switch>
         <Footer />
-      </BrowserRouter>
-    </Provider>
+      </div>
   );
 }
 

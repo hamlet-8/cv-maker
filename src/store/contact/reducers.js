@@ -8,13 +8,20 @@ import {
 } from "./actions";
 
 const defaultState = {
-  fullName: "",
+  fullName: "Ashot",
+  email: "ashot.xazaryan@gmail.com",
+  streetAddress: "masiv",
+  city: "Yrevan",
+  country: "Armenia",
+  phoneNumber: "099857858",
+};
+
+/* fullName: "",
   email: "",
   streetAddress: "",
   city: "",
   country: "",
-  phoneNumber: "",
-};
+  phoneNumber: "", */
 
 /* fullName: "Ashot",
   email: "ashot.xazaryan@gmail.com",

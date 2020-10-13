@@ -5,7 +5,7 @@ import { ButtonTemplates } from "../../components/ButtonTemplates/ButtonTemplate
 
 export const Education = (props) => {
   const [warning, setWarning] = useState(true);
-  const [warningInput, setWarningInput] = useState('');
+  const [warningInput, setWarningInput] = useState(true);
   const year = [];
   for (let i = 1990; i <= 2020; i++) {
     year.push(i);
@@ -28,7 +28,6 @@ export const Education = (props) => {
   };
 
   const onContinueContact = () => {
-  
     if(props.universityName.trim() === '') {
       setWarning('Fill in the University Name field')
       setWarningInput('universityName');
@@ -44,9 +43,18 @@ export const Education = (props) => {
     }else if(props.graduationDate.trim() === '') {
       setWarning('Fill in the Graduation Date field')
       setWarningInput('graduationDate');
-    }else {
-      setWarning(false)
     }
+  }
+
+   const toggleBtn = () => {
+    if(props.universityName.trim() === '' || props.city.trim() === '' ||
+            props.country.trim() === '' ||
+            props.degree.trim() === '' ||
+            props.graduationDate.trim() === '') {
+              return false
+            }else {
+              return true
+            }
   }
 
   return (
@@ -120,15 +128,16 @@ export const Education = (props) => {
           <NavLink to="/experience" className="education__buttonBack ">
              Back
           </NavLink>
-          {props.universityName.trim() === '' || props.city.trim() === '' ||
-            props.country.trim() === '' ||
-            props.degree.trim() === '' ||
-            props.graduationDate.trim() === '' ?
+          { toggleBtn() === false && 
             <div className="education__button" onClick={onContinueContact}>
             Continue
-          </div>:<NavLink to="/skills" className="education__button ">
-            Continue
-          </NavLink> }
+          </div> }
+          { toggleBtn() === true && 
+            <NavLink to="/skills" className="education__button ">
+              Continue
+            </NavLink>
+          }
+          
         </div>  
 
           

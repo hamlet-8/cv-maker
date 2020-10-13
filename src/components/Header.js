@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Logo from "../img/Logo.svg";
 
 export const Header = () => {
   return (
@@ -8,8 +9,8 @@ export const Header = () => {
         <NavLink className="header__logo navbar-brand" to="/">
           <img
             className="col-md-10 row"
-            src={require("../img/Logo.svg")}
-            alt=""
+            src={Logo}
+            alt="Logo"
           />
         </NavLink>
       </div>

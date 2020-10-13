@@ -55,10 +55,23 @@ export const Contact = (props) => {
     }else if(numberValidate.test(props.phoneNumber)) {
       setWarning('Only numbers are allowed')
       setWarningInput('phoneNumber');
-    }else {
-      setWarning(false)
     }
   }
+
+  const toggleBtn = () => {
+    if(props.fullName.trim() === '' || props.email.trim() === '' ||
+            !(emailValidate.test(String(props.email.trim()).toLowerCase())) ||
+            props.streetAddress.trim() === '' ||
+            props.city.trim() === '' ||
+            props.country.trim() === '' ||
+            props.phoneNumber.trim() === '' ||
+            numberValidate.test(props.phoneNumber)) {
+              return false
+            }else {
+              return true
+            }
+  }
+
 
   return (
     <>
@@ -137,19 +150,16 @@ export const Contact = (props) => {
             <div className="alert alert-danger col-lg-12 text-center" role="alert">
               {warning}
             </div>}
-          
-          {props.fullName.trim() === '' || props.email.trim() === '' ||
-            !(emailValidate.test(String(props.email.trim()).toLowerCase())) ||
-            props.streetAddress.trim() === '' ||
-            props.city.trim() === '' ||
-            props.country.trim() === '' ||
-            props.phoneNumber.trim() === '' ||
-            numberValidate.test(props.phoneNumber) ?  
+
+          { toggleBtn() === false &&   
             <div className="contact__button" onClick={onContinueContact}>
             Continue
-          </div>:<NavLink to="/experience" className="contact__button">
+          </div> }
+          { toggleBtn() === true &&
+          <NavLink to="/experience" className="contact__button">
             Continue
-          </NavLink> }
+          </NavLink>}
+      
         </div>
       </div>
     </>

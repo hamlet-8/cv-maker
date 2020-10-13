@@ -7,12 +7,19 @@ import {
 } from "./actions";
 
 const defaultState = {
-  universityName: "",
+  universityName: "Polytechnik",
+  city: "Yerevan",
+  country: "Armenia",
+  degree: "uppermost",
+  graduationDate: "2020",
+};
+
+/* universityName: "",
   city: "",
   country: "",
   degree: "",
-  graduationDate: "",
-};
+  graduationDate: "", */
+
 /* universityName: "Polytechnik",
   city: "Yerevan",
   country: "Armenia",

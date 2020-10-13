@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./home.scss";
+import CvHomeImg from "../../img/CV-home.svg"
 
 export const Home = () => {
   return (
@@ -20,7 +21,7 @@ export const Home = () => {
                 Create a resume on a template
               </NavLink>
             </div>
-            <img src={require("../../img/CV-home.svg")} alt="" />
+            <img src={CvHomeImg} alt="" />
           </div>
         </div>
       </section>

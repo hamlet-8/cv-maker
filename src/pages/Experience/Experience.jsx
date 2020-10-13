@@ -63,9 +63,22 @@ export const Experience = (props) => {
     } */else if(props.jobDescription.trim() === '') {
       setWarning('Fill in the Job Description field')
       setWarningInput('jobDescription');
-    }else {
-      setWarning(false)
     }
+  }
+
+  const toggleBtn = () => {
+    if(props.jobTitle.trim() === '' || props.company.trim() === '' ||
+            props.city.trim() === '' ||
+            props.country.trim() === '' ||
+            props.startDateYear.trim() === '' ||
+            props.startDateMonth.trim() === '' ||
+            props.endDateYear.trim() === '' ||
+            props.endDateMonth.trim() === '' ||
+            props.jobDescription.trim() === '') {
+              return false
+            }else {
+              return true
+            }
   }
 
   return (
@@ -182,17 +195,13 @@ export const Experience = (props) => {
             <NavLink to="/contact" className="experience__buttonBack ">
              Back
             </NavLink>
-            {props.jobTitle.trim() === '' || props.company.trim() === '' ||
-            props.city.trim() === '' ||
-            props.country.trim() === '' ||
-            props.startDateYear.trim() === '' ||
-            props.startDateMonth.trim() === '' ||
-            props.endDateYear.trim() === '' ||
-            props.endDateMonth.trim() === '' ||
-            props.jobDescription.trim() === '' ?  
-            <div className="experience__button" onClick={onContinueContact}>
+          { toggleBtn() === false && 
+          <div className="experience__button" onClick={onContinueContact}>
             Continue
-          </div>:<NavLink to="/education" className="experience__button ">
+          </div> }
+          
+          { toggleBtn() === true &&
+          <NavLink to="/education" className="experience__button ">
             Continue
           </NavLink> }
           

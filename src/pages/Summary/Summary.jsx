@@ -16,8 +16,14 @@ export const Summary = (props) => {
     if(props.summary.trim() === '') {
       setWarning('Fill in the Summary field')
       setWarningInput('summary');
+    }
+  }
+
+  const toggleBtn = () => {
+    if(props.summary.trim() === '') {
+      return false
     }else {
-      setWarning(false)
+      return true
     }
   }
 
@@ -53,10 +59,12 @@ export const Summary = (props) => {
             <NavLink to="/skills" className="summary__buttonBack ">
               Back
           </NavLink>
-          {props.summary.trim() === '' ?
+          { toggleBtn() === false && 
             <div className="summary__button" onClick={onContinueContact}>
             Continue
-          </div>:<NavLink to="/your-resume" className="summary__button ">
+          </div>}
+          { toggleBtn() === true && 
+            <NavLink to="/your-resume" className="summary__button ">
             Continue
           </NavLink>}
         </div>

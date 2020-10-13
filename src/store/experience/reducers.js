@@ -11,7 +11,17 @@ import {
 } from "./actions";
 
 const defaultState = {
-  jobTitle: "",
+  jobTitle: "Programming",
+  company: "ProTag",
+  city: "Yerevan",
+  country: "Armenia",
+  startDateYear: "2019",
+  startDateMonth: "May",
+  endDateYear: "2020",
+  endDateMonth: "April",
+  jobDescription: "A job description is an internal document that clearly states the essential job requirements, job duties, job responsibilities, and skills required to perform a specific role. A more detailed job description will cover how success is measured in the role so it can be used during performance evaluations. They are also known as a job specification, job profiles, JD, and position description (job PD).",
+};
+/* jobTitle: "",
   company: "",
   city: "",
   country: "",
@@ -19,8 +29,8 @@ const defaultState = {
   startDateMonth: "",
   endDateYear: "",
   endDateMonth: "",
-  jobDescription: ""
-};
+  jobDescription: "" */
+
 /* 
  jobTitle: "Programming",
   company: "ProTag",

@@ -1,6 +1,10 @@
 import { TEMPLATE } from "./actions";
 
-export const templatesReducer = (state = "", action) => {
+const defaultState = {
+  summary: "",
+};
+
+export const templatesReducer = (state = defaultState, action) => {
   console.log(state)
   switch (action.type) {
     case TEMPLATE:
@@ -9,6 +13,6 @@ export const templatesReducer = (state = "", action) => {
         template: action.payload,
       };
     default:
-      return state;
+      return {...state};
   }
 };

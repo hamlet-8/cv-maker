@@ -32,29 +32,29 @@ export const educationReducer = (state = defaultState, action) => {
     case EDUCATION_CHANGE_UNIVERSITYNAME:
       return {
         ...state,
-        universityName: action.payload,
+        universityName: action.universityName,
       };
     case EDUCATION_CHANGE_CITY:
       return {
         ...state,
-        city: action.payload,
+        city: action.city,
       };
     case EDUCATION_CHANGE_COUNTRY:
       return {
         ...state,
-        country: action.payload,
+        country: action.country,
       };
     case EDUCATION_CHANGE_DEGREE:
       return {
         ...state,
-        degree: action.payload,
+        degree: action.degree,
       };
     case EDUCATION_CHANGE_GRADUATIONDATE:
       return {
         ...state,
-        graduationDate: action.payload,
+        graduationDate: action.graduationDate,
       };
     default:
-      return state;
+      return { ...state };
   }
 };

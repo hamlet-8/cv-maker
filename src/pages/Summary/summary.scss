@@ -2,7 +2,9 @@ $blue: #0a4884;
 $green: #01bd01;
 
 .summary {
-  height: calc(100vh - 140px);
+  margin-top: 80px;
+  margin-bottom: 20px;
+  min-height: calc(100vh - 140px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +49,7 @@ $green: #01bd01;
     padding: 10px 0;
     text-align: center;
     margin-top: 10px;
+    border-radius: 5px;
     &:hover {
       color: #fff;
       text-decoration: none;
@@ -60,10 +63,27 @@ $green: #01bd01;
     padding: 10px 0;
     text-align: center;
     margin-top: 10px;
+    border-radius: 5px;
     &:hover {
       color: #fff;
       text-decoration: none;
     }
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: 550px) {
+    &__block {
+      box-shadow: 0 0;
+      width: 100%;
+    }
+
+    &__buttonsContinueBack {
+      width: 280px;
+    }
+
+    &__buttonBack,
+    &__button {
+      width: 120px;
+    }
   }
 }

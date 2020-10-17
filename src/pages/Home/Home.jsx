@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./home.scss";
-import CvHomeImg from "../../img/CV-home.svg"
+import CvHomeImg from "../../img/CV-home.svg";
 
 export const Home = () => {
   return (

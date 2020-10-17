@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { ButtonTemplates } from "../../components/ButtonTemplates/ButtonTemplates";
-import Template1 from "./Template1/Template1";
-import Template2 from "./Template2/Template2";
-import Template3 from "./Template3/Template3";
-import Template4 from "./Template4/Template4";
+import "./template1.scss";
+import "./template2.scss";
+import "./template3.scss";
+import "./template4.scss";
 
-import * as html2canvas from 'html2canvas'
-import { jsPDF } from 'jspdf';
+import * as html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 
 import { setTemplate } from "../../store/templates/actions";
 
@@ -37,132 +37,138 @@ const YourResume = ({
   skillsSkills,
   summarySummary,
   templates,
-  setTemplate
+  setTemplate,
 }) => {
-  
-    const printDocument = () => {
-      let list = document.getElementById('list')
-      html2canvas(list).then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0);
-        // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf");
-      });
-    }
+  const printDocument = () => {
+    let list = document.getElementById("list");
+    html2canvas(list).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "JPEG", 0, 0);
+      // pdf.output('dataurlnewwindow');
+      pdf.save("download.pdf");
+    });
+  };
 
-      const onTemplateChange = (event) => {
-        setTemplate(event);
-      }
+  const onTemplateChange = (event) => {
+    setTemplate(event);
+  };
   return (
     <div className="yourresume">
-      <ButtonTemplates />
       <div className="yourresume__left-block">
         <div id="list" className="yourresume__list">
-          {templates === "template1" && (
-            <Template1
-              contactFullName={contactFullName}
-              contactEmail={contactEmail}
-              contactStreetAddress={contactStreetAddress}
-              contactCity={contactCity}
-              contactCountry={contactCountry}
-              contactPhoneNumber={contactPhoneNumber}
-              experienceJobTitle={experienceJobTitle}
-              experienceCompany={experienceCompany}
-              experienceCity={experienceCity}
-              experienceCountry={experienceCountry}
-              experienceStartDateYear={experienceStartDateYear}
-              experienceStartDateMonth={experienceStartDateMonth}
-              experienceEndDateYear={experienceEndDateYear}
-              experienceEndDateMonth={experienceEndDateMonth}
-              experienceJobDescription={experienceJobDescription}
-              educationUniversityName={educationUniversityName}
-              educationCity={educationCity}
-              educationCountry={educationCountry}
-              educationDegree={educationDegree}
-              educationGraduationDate={educationGraduationDate}
-              skillsSkills={skillsSkills}
-              summarySummary={summarySummary}
-            />
-          )}
-          {templates === "template2" && (
-            <Template2
-              contactFullName={contactFullName}
-              contactEmail={contactEmail}
-              contactStreetAddress={contactStreetAddress}
-              contactCity={contactCity}
-              contactCountry={contactCountry}
-              contactPhoneNumber={contactPhoneNumber}
-              experienceJobTitle={experienceJobTitle}
-              experienceCompany={experienceCompany}
-              experienceCity={experienceCity}
-              experienceCountry={experienceCountry}
-              experienceStartDateYear={experienceStartDateYear}
-              experienceStartDateMonth={experienceStartDateMonth}
-              experienceEndDateYear={experienceEndDateYear}
-              experienceEndDateMonth={experienceEndDateMonth}
-              experienceJobDescription={experienceJobDescription}
-              educationUniversityName={educationUniversityName}
-              educationCity={educationCity}
-              educationCountry={educationCountry}
-              educationDegree={educationDegree}
-              educationGraduationDate={educationGraduationDate}
-              skillsSkills={skillsSkills}
-              summarySummary={summarySummary}
-            />
-          )}
-          {templates === "template3" && (
-            <Template3
-              contactFullName={contactFullName}
-              contactEmail={contactEmail}
-              contactStreetAddress={contactStreetAddress}
-              contactCity={contactCity}
-              contactCountry={contactCountry}
-              contactPhoneNumber={contactPhoneNumber}
-              experienceJobTitle={experienceJobTitle}
-              experienceCompany={experienceCompany}
-              experienceCity={experienceCity}
-              experienceCountry={experienceCountry}
-              experienceStartDateYear={experienceStartDateYear}
-              experienceStartDateMonth={experienceStartDateMonth}
-              experienceEndDateYear={experienceEndDateYear}
-              experienceEndDateMonth={experienceEndDateMonth}
-              experienceJobDescription={experienceJobDescription}
-              educationUniversityName={educationUniversityName}
-              educationCity={educationCity}
-              educationCountry={educationCountry}
-              educationDegree={educationDegree}
-              educationGraduationDate={educationGraduationDate}
-              skillsSkills={skillsSkills}
-              summarySummary={summarySummary}
-            />
-          )}
-          {templates === "template4" && (
-            <Template4
-              contactFullName={contactFullName}
-              contactEmail={contactEmail}
-              contactStreetAddress={contactStreetAddress}
-              contactCity={contactCity}
-              contactCountry={contactCountry}
-              contactPhoneNumber={contactPhoneNumber}
-              experienceJobTitle={experienceJobTitle}
-              experienceCompany={experienceCompany}
-              experienceCity={experienceCity}
-              experienceCountry={experienceCountry}
-              experienceStartDateYear={experienceStartDateYear}
-              experienceStartDateMonth={experienceStartDateMonth}
-              experienceEndDateYear={experienceEndDateYear}
-              experienceEndDateMonth={experienceEndDateMonth}
-              experienceJobDescription={experienceJobDescription}
-              educationUniversityName={educationUniversityName}
-              educationCity={educationCity}
-              educationCountry={educationCountry}
-              educationDegree={educationDegree}
-              educationGraduationDate={educationGraduationDate}
-              skillsSkills={skillsSkills}
-              summarySummary={summarySummary}
-            />
-          )}
+          <div
+            className={
+              (templates === "template1" && "yourresume__content-tamplate1") ||
+              (templates === "template2" && "yourresume__content-tamplate2") ||
+              (templates === "template3" && "yourresume__content-tamplate3") ||
+              (templates === "template4" && "yourresume__content-tamplate4")
+            }
+          >
+            <div
+              className={
+                (templates === "template1" &&
+                  "yourresume__contact-tamplate1") ||
+                (templates === "template2" &&
+                  "yourresume__contact-tamplate2") ||
+                (templates === "template3" &&
+                  "yourresume__contact-tamplate3") ||
+                (templates === "template4" && "yourresume__contact-tamplate4")
+              }
+            >
+              <h2>{contactFullName}</h2>
+              <span>
+                {contactEmail} | {contactPhoneNumber}
+              </span>
+              <span>
+                {contactStreetAddress}, {contactCity}, {contactCountry}
+              </span>
+            </div>
+            <div
+              className={
+                (templates === "template1" &&
+                  "yourresume__second-block-tamplate1") ||
+                (templates === "template2" &&
+                  "yourresume__second-block-tamplate2") ||
+                (templates === "template3" &&
+                  "yourresume__second-block-tamplate3") ||
+                (templates === "template4" &&
+                  "yourresume__second-block-tamplate4")
+              }
+            >
+              <div
+                className={
+                  (templates === "template1" &&
+                    "yourresume__summary-tamplate1") ||
+                  (templates === "template2" &&
+                    "yourresume__summary-tamplate2") ||
+                  (templates === "template3" &&
+                    "yourresume__summary-tamplate3") ||
+                  (templates === "template4" && "yourresume__summary-tamplate4")
+                }
+              >
+                <h3>Summary</h3>
+                <span>{summarySummary}</span>
+              </div>
+              <div
+                className={
+                  (templates === "template1" &&
+                    "yourresume__skills-tamplate1") ||
+                  (templates === "template2" &&
+                    "yourresume__skills-tamplate2") ||
+                  (templates === "template3" &&
+                    "yourresume__skills-tamplate3") ||
+                  (templates === "template4" && "yourresume__skills-tamplate4")
+                }
+              >
+                <h3>Skills</h3>
+                <span>{skillsSkills}</span>
+              </div>
+              <div
+                className={
+                  (templates === "template1" &&
+                    "yourresume__experience-tamplate1") ||
+                  (templates === "template2" &&
+                    "yourresume__experience-tamplate2") ||
+                  (templates === "template3" &&
+                    "yourresume__experience-tamplate3") ||
+                  (templates === "template4" &&
+                    "yourresume__experience-tamplate4")
+                }
+              >
+                <h3>Experience</h3>
+                <h4>{experienceJobTitle}</h4>
+                <span>
+                  {experienceCompany} - {experienceCity}, {experienceCountry} |
+                  {" " +
+                    experienceStartDateMonth +
+                    " / " +
+                    experienceStartDateYear}{" "}
+                  - {experienceEndDateMonth + " / " + experienceEndDateYear}
+                </span>
+                <span>{experienceJobDescription}</span>
+              </div>
+              <div
+                className={
+                  (templates === "template1" &&
+                    "yourresume__education-tamplate1") ||
+                  (templates === "template2" &&
+                    "yourresume__education-tamplate2") ||
+                  (templates === "template3" &&
+                    "yourresume__education-tamplate3") ||
+                  (templates === "template4" &&
+                    "yourresume__education-tamplate4")
+                }
+              >
+                <h3>Education</h3>
+                <h4>{educationDegree}</h4>
+                <span>
+                  {educationUniversityName} | {educationCity},{" "}
+                  {educationCountry} |{" " + educationGraduationDate}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="yourresume__right-block">
@@ -171,18 +177,22 @@ const YourResume = ({
         </div>
 
         <div className="yourresume__templates">
-              <div className="yourresume__template1" onClick={() => onTemplateChange('template1')}>
-               
-              </div>
-              <div className="yourresume__template2" onClick={() => onTemplateChange('template2')}>
-               
-              </div>
-              <div className="yourresume__template3" onClick={() => onTemplateChange('template3')}>
-                
-              </div>
-              <div className="yourresume__template4" onClick={() => onTemplateChange('template4')}>
-               
-              </div>
+          <div
+            className="yourresume__template1"
+            onClick={() => onTemplateChange("template1")}
+          />
+          <div
+            className="yourresume__template2"
+            onClick={() => onTemplateChange("template2")}
+          />
+          <div
+            className="yourresume__template3"
+            onClick={() => onTemplateChange("template3")}
+          />
+          <div
+            className="yourresume__template4"
+            onClick={() => onTemplateChange("template4")}
+          />
         </div>
       </div>
     </div>
@@ -219,9 +229,7 @@ const mapStateToProps = (state) => {
     summarySummary: state.summary.summary,
 
     templates: state.templates.template,
-
   };
-
 };
 
 const mapDispatchToProps = {

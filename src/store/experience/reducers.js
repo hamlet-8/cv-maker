@@ -19,7 +19,8 @@ const defaultState = {
   startDateMonth: "May",
   endDateYear: "2020",
   endDateMonth: "April",
-  jobDescription: "A job description is an internal document that clearly states the essential job requirements, job duties, job responsibilities, and skills required to perform a specific role. A more detailed job description will cover how success is measured in the role so it can be used during performance evaluations. They are also known as a job specification, job profiles, JD, and position description (job PD).",
+  jobDescription:
+    "A job description is an internal document that clearly states the essential job requirements, job duties, job responsibilities, and skills required to perform a specific role. A more detailed job description will cover how success is measured in the role so it can be used during performance evaluations. They are also known as a job specification, job profiles, JD, and position description (job PD).",
 };
 /* jobTitle: "",
   company: "",
@@ -48,49 +49,49 @@ export const experienceReducer = (state = defaultState, action) => {
     case EXPERIENCE_CHANGE_JOBTITLE:
       return {
         ...state,
-        jobTitle: action.payload,
+        jobTitle: action.jobTitle,
       };
     case EXPERIENCE_CHANGE_COMPANY:
       return {
         ...state,
-        company: action.payload,
+        company: action.company,
       };
     case EXPERIENCE_CHANGE_CITY:
       return {
         ...state,
-        city: action.payload,
+        city: action.city,
       };
     case EXPERIENCE_CHANGE_COUNTRY:
       return {
         ...state,
-        country: action.payload,
+        country: action.country,
       };
     case EXPERIENCE_CHANGE_STARTDATEYEAR:
       return {
         ...state,
-        startDateYear: action.payload,
+        startDateYear: action.startDateYear,
       };
     case EXPERIENCE_CHANGE_STARTDATEMONTH:
       return {
         ...state,
-        startDateMonth: action.payload,
+        startDateMonth: action.startDateMonth,
       };
     case EXPERIENCE_CHANGE_ENDDATEYEAR:
       return {
         ...state,
-        endDateYear: action.payload,
+        endDateYear: action.endDateYear,
       };
     case EXPERIENCE_CHANGE_ENDDATEMONTH:
       return {
         ...state,
-        endDateMonth: action.payload,
+        endDateMonth: action.endDateMonth,
       };
     case EXPERIENCE_CHANGE_JOBDESCRIPTION:
       return {
         ...state,
-        jobDescription: action.payload,
+        jobDescription: action.jobDescription,
       };
     default:
-      return state;
+      return { ...state };
   }
 };

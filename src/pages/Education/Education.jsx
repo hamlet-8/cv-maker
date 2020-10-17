@@ -4,8 +4,11 @@ import "./education.scss";
 import { ButtonTemplates } from "../../components/ButtonTemplates/ButtonTemplates";
 
 export const Education = (props) => {
-  const [warning, setWarning] = useState(true);
-  const [warningInput, setWarningInput] = useState(true);
+  const [warning, setWarning] = useState({
+    message: "",
+    hasWarning: false,
+    inputWarning: "",
+  });
   const year = [];
   for (let i = 1990; i <= 2020; i++) {
     year.push(i);
@@ -28,34 +31,52 @@ export const Education = (props) => {
   };
 
   const onContinueContact = () => {
-    if(props.universityName.trim() === '') {
-      setWarning('Fill in the University Name field')
-      setWarningInput('universityName');
-    }else if(props.city.trim() === '') {
-      setWarning('Fill in the City field')
-      setWarningInput('city');
-    }else if(props.country.trim() === '') {
-      setWarning('Fill in the Country field')
-      setWarningInput('country');
-    }else if(props.degree.trim() === '') {
-      setWarning('Fill in the Degree field')
-      setWarningInput('degree');
-    }else if(props.graduationDate.trim() === '') {
-      setWarning('Fill in the Graduation Date field')
-      setWarningInput('graduationDate');
+    if (props.universityName.trim() === "") {
+      setWarning({
+        ...warning,
+        message: "Fill in the University Name field",
+        inputWarning: "universityName",
+      });
+    } else if (props.city.trim() === "") {
+      setWarning({
+        ...warning,
+        message: "Fill in the City field",
+        inputWarning: "city",
+      });
+    } else if (props.country.trim() === "") {
+      setWarning({
+        ...warning,
+        message: "Fill in the Country field",
+        inputWarning: "country",
+      });
+    } else if (props.degree.trim() === "") {
+      setWarning({
+        ...warning,
+        message: "Fill in the Degree field",
+        inputWarning: "degree",
+      });
+    } else if (props.graduationDate.trim() === "") {
+      setWarning({
+        ...warning,
+        message: "Fill in the Graduation Date field",
+        inputWarning: "graduationDate",
+      });
     }
-  }
+  };
 
-   const toggleBtn = () => {
-    if(props.universityName.trim() === '' || props.city.trim() === '' ||
-            props.country.trim() === '' ||
-            props.degree.trim() === '' ||
-            props.graduationDate.trim() === '') {
-              return false
-            }else {
-              return true
-            }
-  }
+  const toggleBtn = () => {
+    if (
+      props.universityName.trim() === "" ||
+      props.city.trim() === "" ||
+      props.country.trim() === "" ||
+      props.degree.trim() === "" ||
+      props.graduationDate.trim() === ""
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   return (
     <>
@@ -69,78 +90,122 @@ export const Education = (props) => {
 
           <div className="education__inputs">
             <div className="education__input education__university-name form-group">
-              <label htmlFor="university-name" className={warningInput === 'universityName' && 'text-danger'}>University Name</label>
+              <label
+                htmlFor="university-name"
+                className={
+                  warning.inputWarning === "universityName" && "text-danger"
+                }
+              >
+                University Name
+              </label>
               <input
                 type="text"
                 id="university-name"
-                className={`form-control ${warningInput === 'universityName' && 'is-invalid'}`}
+                className={`form-control ${
+                  warning.inputWarning === "universityName" && "is-invalid"
+                }`}
                 value={props.universityName}
                 onChange={onUniversityNameChange}
               />
             </div>
             <div className="education__input education__city form-group">
-              <label htmlFor="city" className={warningInput === 'city' && 'text-danger'}>City</label>
+              <label
+                htmlFor="city"
+                className={warning.inputWarning === "city" && "text-danger"}
+              >
+                City
+              </label>
               <input
                 type="text"
                 id="city"
-                className={`form-control ${warningInput === 'city' && 'is-invalid'}`}
+                className={`form-control ${
+                  warning.inputWarning === "city" && "is-invalid"
+                }`}
                 value={props.city}
                 onChange={onCityChange}
               />
             </div>
             <div className="education__input education__country form-group">
-              <label htmlFor="country" className={warningInput === 'country' && 'text-danger'}>Country</label>
+              <label
+                htmlFor="country"
+                className={warning.inputWarning === "country" && "text-danger"}
+              >
+                Country
+              </label>
               <input
                 type="text"
                 id="country"
-                className={`form-control ${warningInput === 'country' && 'is-invalid'}`}
+                className={`form-control ${
+                  warning.inputWarning === "country" && "is-invalid"
+                }`}
                 value={props.country}
                 onChange={onCountryChange}
               />
             </div>
             <div className="education__input education__degree form-group">
-              <label htmlFor="degree" className={warningInput === 'degree' && 'text-danger'}>Degree</label>
+              <label
+                htmlFor="degree"
+                className={warning.inputWarning === "degree" && "text-danger"}
+              >
+                Degree
+              </label>
               <input
                 type="text"
                 id="degree"
-                className={`form-control ${warningInput === 'degree' && 'is-invalid'}`}
+                className={`form-control ${
+                  warning.inputWarning === "degree" && "is-invalid"
+                }`}
                 value={props.degree}
                 onChange={onDegreeChange}
               />
             </div>
             <div className="education__input education__graduation-date form-group">
-              <label htmlFor="graduation-date" className={warningInput === 'graduationDate' && 'text-danger'}>Graduation Date</label>
-              <select 
-                  id="graduation-date"
-                  className={`form-control ${warningInput === 'graduationDate' && 'is-invalid'}`}
-                  value={props.graduationDate}
-                  onChange={onGraduationDateChange}>
-                    {year.map(e => <option>{e}</option>)}
-                </select>
+              <label
+                htmlFor="graduation-date"
+                className={
+                  warning.inputWarning === "graduationDate" && "text-danger"
+                }
+              >
+                Graduation Date
+              </label>
+              <select
+                id="graduation-date"
+                className={`form-control ${
+                  warning.inputWarning === "graduationDate" && "is-invalid"
+                }`}
+                value={props.graduationDate}
+                onChange={onGraduationDateChange}
+              >
+                {year.map((e, i) => (
+                  <option key={i}>{e}</option>
+                ))}
+              </select>
             </div>
           </div>
-          {warning !== true && 
-            <div className="alert alert-danger col-lg-12 text-center" role="alert">
-              {warning}
-            </div>}
-          
-        <div className="education__buttonsContinueBack">
-          <NavLink to="/experience" className="education__buttonBack ">
-             Back
-          </NavLink>
-          { toggleBtn() === false && 
-            <div className="education__button" onClick={onContinueContact}>
-            Continue
-          </div> }
-          { toggleBtn() === true && 
-            <NavLink to="/skills" className="education__button ">
-              Continue
-            </NavLink>
-          }
-          
-        </div>  
+          {warning.hasWarning === false && (
+            <div
+              className="alert alert-danger col-lg-12 text-center"
+              role="alert"
+            >
+              {warning.message}
+            </div>
+          )}
 
-          
+          <div className="education__buttonsContinueBack">
+            <NavLink to="/experience" className="education__buttonBack ">
+              Back
+            </NavLink>
+            {toggleBtn() === false && (
+              <div className="education__button" onClick={onContinueContact}>
+                Continue
+              </div>
+            )}
+            {toggleBtn() === true && (
+              <NavLink to="/skills" className="education__button ">
+                Continue
+              </NavLink>
+            )}
+          </div>
         </div>
       </div>
     </>

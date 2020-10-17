@@ -31,39 +31,38 @@ const defaultState = {
   phoneNumber: "099857858", */
 
 export const contactReducer = (state = defaultState, action) => {
-
   switch (action.type) {
     case CONTACT_CHANGE_FULLNAME:
       return {
         ...state,
-        fullName: action.payload,
+        fullName: action.fullName,
       };
     case CONTACT_CHANGE_EMAIL:
       return {
         ...state,
-        email: action.payload,
+        email: action.email,
       };
     case CONTACT_CHANGE_STREETADDRESS:
       return {
         ...state,
-        streetAddress: action.payload,
+        streetAddress: action.streetAddress,
       };
     case CONTACT_CHANGE_CITY:
       return {
         ...state,
-        city: action.payload,
+        city: action.city,
       };
     case CONTACT_CHANGE_COUNTRY:
       return {
         ...state,
-        country: action.payload,
+        country: action.country,
       };
     case CONTACT_CHANGE_PHONENUMBER:
       return {
         ...state,
-        phoneNumber: action.payload,
+        phoneNumber: action.phoneNumber,
       };
     default:
-      return state;
+      return { ...state };
   }
 };

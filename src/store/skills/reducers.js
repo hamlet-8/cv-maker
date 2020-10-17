@@ -1,7 +1,8 @@
 import { SKILLS_CHANGE_AREA } from "./actions";
 
 const defaultState = {
-  skills: "HTML, CSS, JavaScript, PHP, ReactJS, NodeJS, WordPress, Figma, Photoshop, Git, GitHub, GitLab, npm, yarn",
+  skills:
+    "HTML, CSS, JavaScript, PHP, ReactJS, NodeJS, WordPress, Figma, Photoshop, Git, GitHub, GitLab, npm, yarn",
 };
 // skills: "",
 
@@ -13,10 +14,10 @@ export const skillsReducer = (state = defaultState, action) => {
     case SKILLS_CHANGE_AREA:
       return {
         ...state,
-        skills: action.payload,
+        skills: action.skills,
       };
 
     default:
-      return state;
+      return { ...state };
   }
 };

@@ -7,30 +7,30 @@ export const CONTACT_CHANGE_PHONENUMBER = "CONTACT_CHANGE_PHONENUMBER";
 
 export const setFullName = (fullName) => ({
   type: CONTACT_CHANGE_FULLNAME,
-  payload: fullName,
+  fullName: fullName,
 });
 
 export const setEmail = (email) => ({
   type: CONTACT_CHANGE_EMAIL,
-  payload: email,
+  email: email,
 });
 
 export const setStreetAddress = (streetAddress) => ({
   type: CONTACT_CHANGE_STREETADDRESS,
-  payload: streetAddress,
+  streetAddress: streetAddress,
 });
 
 export const setCity = (city) => ({
   type: CONTACT_CHANGE_CITY,
-  payload: city,
+  city: city,
 });
 
 export const setCountry = (country) => ({
   type: CONTACT_CHANGE_COUNTRY,
-  payload: country,
+  country: country,
 });
 
 export const setPhoneNumber = (phoneNumber) => ({
   type: CONTACT_CHANGE_PHONENUMBER,
-  payload: phoneNumber,
+  phoneNumber: phoneNumber,
 });

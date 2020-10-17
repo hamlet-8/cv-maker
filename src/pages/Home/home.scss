@@ -25,9 +25,16 @@ h2 {
       top: 0;
       transform: translate(-70%, -20%);
     }
+
+    @media only screen and (max-width: 1210px) {
+      & img {
+        display: none;
+      }
+    }
   }
   &__offer-structure {
     width: 500px;
+    padding-bottom: 50px;
     & > * {
       margin-bottom: 50px;
     }
@@ -52,6 +59,18 @@ h2 {
     &:hover {
       text-decoration: none;
       color: #fff;
+    }
+  }
+
+  @media only screen and (max-width: 510px) {
+    & h1 {
+      font-size: 36px;
+    }
+    & span {
+      font-size: 24px;
+    }
+    &__button {
+      font-size: 14px;
     }
   }
 }

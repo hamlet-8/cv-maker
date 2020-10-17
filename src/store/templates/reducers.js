@@ -5,7 +5,7 @@ const defaultState = {
 };
 
 export const templatesReducer = (state = defaultState, action) => {
-  console.log(state)
+  // console.log(state)
   switch (action.type) {
     case TEMPLATE:
       return {

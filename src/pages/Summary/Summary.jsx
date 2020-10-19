@@ -19,17 +19,14 @@ export const Summary = (props) => {
       setWarning({
         ...warning,
         message: "Fill in the Summary field",
+        hasWarning: true,
         inputWarning: "summary",
       });
     }
   };
 
   const toggleBtn = () => {
-    if (props.summary.trim() === "") {
-      return false;
-    } else {
-      return true;
-    }
+    return props.summary.trim() === "";
   };
 
   return (
@@ -56,7 +53,7 @@ export const Summary = (props) => {
             />
           </div>
 
-          {warning.hasWarning === false && (
+          {warning.hasWarning && (
             <div
               className="alert alert-danger col-lg-12 text-center"
               role="alert"
@@ -69,12 +66,12 @@ export const Summary = (props) => {
             <NavLink to="/skills" className="summary__buttonBack ">
               Back
             </NavLink>
-            {toggleBtn() === false && (
+            {toggleBtn() && (
               <div className="summary__button" onClick={onContinueContact}>
                 Continue
               </div>
             )}
-            {toggleBtn() === true && (
+            {!toggleBtn() && (
               <NavLink to="/your-resume" className="summary__button ">
                 Continue
               </NavLink>

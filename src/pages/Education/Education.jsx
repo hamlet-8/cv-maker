@@ -35,47 +35,48 @@ export const Education = (props) => {
       setWarning({
         ...warning,
         message: "Fill in the University Name field",
+        hasWarning: true,
         inputWarning: "universityName",
       });
     } else if (props.city.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the City field",
+        hasWarning: true,
         inputWarning: "city",
       });
     } else if (props.country.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Country field",
+        hasWarning: true,
         inputWarning: "country",
       });
     } else if (props.degree.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Degree field",
+        hasWarning: true,
         inputWarning: "degree",
       });
     } else if (props.graduationDate.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Graduation Date field",
+        hasWarning: true,
         inputWarning: "graduationDate",
       });
     }
   };
 
   const toggleBtn = () => {
-    if (
+    return (
       props.universityName.trim() === "" ||
       props.city.trim() === "" ||
       props.country.trim() === "" ||
       props.degree.trim() === "" ||
       props.graduationDate.trim() === ""
-    ) {
-      return false;
-    } else {
-      return true;
-    }
+    );
   };
 
   return (
@@ -182,7 +183,7 @@ export const Education = (props) => {
               </select>
             </div>
           </div>
-          {warning.hasWarning === false && (
+          {warning.hasWarning && (
             <div
               className="alert alert-danger col-lg-12 text-center"
               role="alert"
@@ -195,12 +196,12 @@ export const Education = (props) => {
             <NavLink to="/experience" className="education__buttonBack ">
               Back
             </NavLink>
-            {toggleBtn() === false && (
+            {toggleBtn() && (
               <div className="education__button" onClick={onContinueContact}>
                 Continue
               </div>
             )}
-            {toggleBtn() === true && (
+            {!toggleBtn() && (
               <NavLink to="/skills" className="education__button ">
                 Continue
               </NavLink>

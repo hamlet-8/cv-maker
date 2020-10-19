@@ -61,24 +61,28 @@ export const Experience = (props) => {
       setWarning({
         ...warning,
         message: "Fill in the Full Job Title",
+        hasWarning: true,
         inputWarning: "jobTitle",
       });
     } else if (props.company.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Company field",
+        hasWarning: true,
         inputWarning: "company",
       });
     } else if (props.city.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the City field",
+        hasWarning: true,
         inputWarning: "city",
       });
     } else if (props.country.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Country field",
+        hasWarning: true,
         inputWarning: "country",
       });
     } /* else if(props.startDateYear.trim() === '') {
@@ -93,13 +97,14 @@ export const Experience = (props) => {
       setWarning({
         ...warning,
         message: "Fill in the Job Description field",
+        hasWarning: true,
         inputWarning: "jobDescription",
       });
     }
   };
 
   const toggleBtn = () => {
-    return !(
+    return (
       props.jobTitle.trim() === "" ||
       props.company.trim() === "" ||
       props.city.trim() === "" ||
@@ -305,7 +310,7 @@ export const Experience = (props) => {
             </div>
           </div>
 
-          {warning.hasWarning === false && (
+          {warning.hasWarning && (
             <div
               className="alert alert-danger col-lg-12 text-center"
               role="alert"
@@ -317,13 +322,13 @@ export const Experience = (props) => {
             <NavLink to="/contact" className="experience__buttonBack ">
               Back
             </NavLink>
-            {toggleBtn() === false && (
+            {toggleBtn() && (
               <div className="experience__button" onClick={onContinueContact}>
                 Continue
               </div>
             )}
 
-            {toggleBtn() === true && (
+            {!toggleBtn() && (
               <NavLink to="/education" className="experience__button ">
                 Continue
               </NavLink>

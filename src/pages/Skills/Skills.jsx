@@ -17,19 +17,15 @@ export const Skills = (props) => {
   const onContinueContact = () => {
     if (props.skills.trim() === "") {
       setWarning({
-        ...warning,
         message: "Fill in the Skills field",
+        hasWarning: true,
         inputWarning: "skills",
       });
     }
   };
 
   const toggleBtn = () => {
-    if (props.skills.trim() === "") {
-      return false;
-    } else {
-      return true;
-    }
+    return props.skills.trim() === "";
   };
 
   return (
@@ -55,7 +51,7 @@ export const Skills = (props) => {
               onChange={onSkillsChange}
             />
           </div>
-          {warning.hasWarning === false && (
+          {warning.hasWarning && (
             <div
               className="alert alert-danger col-lg-12 text-center"
               role="alert"
@@ -68,12 +64,12 @@ export const Skills = (props) => {
             <NavLink to="/education" className="skills__buttonBack ">
               Back
             </NavLink>
-            {toggleBtn() === false && (
+            {toggleBtn() && (
               <div className="skills__button" onClick={onContinueContact}>
                 Continue
               </div>
             )}
-            {toggleBtn() === true && (
+            {!toggleBtn() && (
               <NavLink to="/summary" className="skills__button">
                 Continue
               </NavLink>

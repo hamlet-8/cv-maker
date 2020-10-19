@@ -39,14 +39,24 @@ const YourResume = ({
   templates,
   setTemplate,
 }) => {
+  let list = document.getElementById("list");
+
   const printDocument = () => {
-    let list = document.getElementById("list");
-    html2canvas(list).then((canvas) => {
+    // let parent = document.getElementById("yourresume__list");
+    let list = document.getElementById("yourresume__list");
+    let clist = list.cloneNode(true);
+    clist.classList.add("clist");
+
+    document.body.appendChild(clist);
+    window.scrollTo(0, 0);
+    html2canvas(clist).then((canvas) => {
+      // document.body.appendChild(canvas);
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
-      // pdf.output('dataurlnewwindow');
+      const pdf = new jsPDF("p", "mm");
+      pdf.addImage(imgData, "PNG", 8, 8);
+      // pdf.output("dataurlnewwindow");
       pdf.save("download.pdf");
+      document.body.removeChild(clist);
     });
   };
 
@@ -56,124 +66,132 @@ const YourResume = ({
   return (
     <div className="yourresume">
       <div className="yourresume__left-block">
-        <div id="list" className="yourresume__list">
-          <div
-            className={
-              (templates === "template1" && "yourresume__content-tamplate1") ||
-              (templates === "template2" && "yourresume__content-tamplate2") ||
-              (templates === "template3" && "yourresume__content-tamplate3") ||
-              (templates === "template4" && "yourresume__content-tamplate4")
-            }
-          >
+        <div id="yourresume__list" className="yourresume__list">
+          <div id="list">
             <div
               className={
                 (templates === "template1" &&
-                  "yourresume__contact-tamplate1") ||
+                  "yourresume__content-tamplate1") ||
                 (templates === "template2" &&
-                  "yourresume__contact-tamplate2") ||
+                  "yourresume__content-tamplate2") ||
                 (templates === "template3" &&
-                  "yourresume__contact-tamplate3") ||
-                (templates === "template4" && "yourresume__contact-tamplate4")
-              }
-            >
-              <h2>{contactFullName}</h2>
-              <span>
-                {contactEmail} | {contactPhoneNumber}
-              </span>
-              <span>
-                {contactStreetAddress}, {contactCity}, {contactCountry}
-              </span>
-            </div>
-            <div
-              className={
-                (templates === "template1" &&
-                  "yourresume__second-block-tamplate1") ||
-                (templates === "template2" &&
-                  "yourresume__second-block-tamplate2") ||
-                (templates === "template3" &&
-                  "yourresume__second-block-tamplate3") ||
-                (templates === "template4" &&
-                  "yourresume__second-block-tamplate4")
+                  "yourresume__content-tamplate3") ||
+                (templates === "template4" && "yourresume__content-tamplate4")
               }
             >
               <div
                 className={
                   (templates === "template1" &&
-                    "yourresume__summary-tamplate1") ||
+                    "yourresume__contact-tamplate1") ||
                   (templates === "template2" &&
-                    "yourresume__summary-tamplate2") ||
+                    "yourresume__contact-tamplate2") ||
                   (templates === "template3" &&
-                    "yourresume__summary-tamplate3") ||
-                  (templates === "template4" && "yourresume__summary-tamplate4")
+                    "yourresume__contact-tamplate3") ||
+                  (templates === "template4" && "yourresume__contact-tamplate4")
                 }
               >
-                <h3>Summary</h3>
-                <span>{summarySummary}</span>
-              </div>
-              <div
-                className={
-                  (templates === "template1" &&
-                    "yourresume__skills-tamplate1") ||
-                  (templates === "template2" &&
-                    "yourresume__skills-tamplate2") ||
-                  (templates === "template3" &&
-                    "yourresume__skills-tamplate3") ||
-                  (templates === "template4" && "yourresume__skills-tamplate4")
-                }
-              >
-                <h3>Skills</h3>
-                <span>{skillsSkills}</span>
-              </div>
-              <div
-                className={
-                  (templates === "template1" &&
-                    "yourresume__experience-tamplate1") ||
-                  (templates === "template2" &&
-                    "yourresume__experience-tamplate2") ||
-                  (templates === "template3" &&
-                    "yourresume__experience-tamplate3") ||
-                  (templates === "template4" &&
-                    "yourresume__experience-tamplate4")
-                }
-              >
-                <h3>Experience</h3>
-                <h4>{experienceJobTitle}</h4>
+                <h2>{contactFullName}</h2>
                 <span>
-                  {experienceCompany} - {experienceCity}, {experienceCountry} |
-                  {" " +
-                    experienceStartDateMonth +
-                    " / " +
-                    experienceStartDateYear}{" "}
-                  - {experienceEndDateMonth + " / " + experienceEndDateYear}
+                  {contactEmail} | {contactPhoneNumber}
                 </span>
-                <span>{experienceJobDescription}</span>
+                <span>
+                  {contactStreetAddress}, {contactCity}, {contactCountry}
+                </span>
               </div>
               <div
                 className={
                   (templates === "template1" &&
-                    "yourresume__education-tamplate1") ||
+                    "yourresume__second-block-tamplate1") ||
                   (templates === "template2" &&
-                    "yourresume__education-tamplate2") ||
+                    "yourresume__second-block-tamplate2") ||
                   (templates === "template3" &&
-                    "yourresume__education-tamplate3") ||
+                    "yourresume__second-block-tamplate3") ||
                   (templates === "template4" &&
-                    "yourresume__education-tamplate4")
+                    "yourresume__second-block-tamplate4")
                 }
               >
-                <h3>Education</h3>
-                <h4>{educationDegree}</h4>
-                <span>
-                  {educationUniversityName} | {educationCity},{" "}
-                  {educationCountry} |{" " + educationGraduationDate}
-                </span>
+                <div
+                  className={
+                    (templates === "template1" &&
+                      "yourresume__summary-tamplate1") ||
+                    (templates === "template2" &&
+                      "yourresume__summary-tamplate2") ||
+                    (templates === "template3" &&
+                      "yourresume__summary-tamplate3") ||
+                    (templates === "template4" &&
+                      "yourresume__summary-tamplate4")
+                  }
+                >
+                  <h3>Summary</h3>
+                  <span>{summarySummary}</span>
+                </div>
+                <div
+                  className={
+                    (templates === "template1" &&
+                      "yourresume__skills-tamplate1") ||
+                    (templates === "template2" &&
+                      "yourresume__skills-tamplate2") ||
+                    (templates === "template3" &&
+                      "yourresume__skills-tamplate3") ||
+                    (templates === "template4" &&
+                      "yourresume__skills-tamplate4")
+                  }
+                >
+                  <h3>Skills</h3>
+                  <span>{skillsSkills}</span>
+                </div>
+                <div
+                  className={
+                    (templates === "template1" &&
+                      "yourresume__experience-tamplate1") ||
+                    (templates === "template2" &&
+                      "yourresume__experience-tamplate2") ||
+                    (templates === "template3" &&
+                      "yourresume__experience-tamplate3") ||
+                    (templates === "template4" &&
+                      "yourresume__experience-tamplate4")
+                  }
+                >
+                  <h3>Experience</h3>
+                  <h4>{experienceJobTitle}</h4>
+                  <span>
+                    {experienceCompany} - {experienceCity}, {experienceCountry}{" "}
+                    |
+                    {" " +
+                      experienceStartDateMonth +
+                      " / " +
+                      experienceStartDateYear}{" "}
+                    - {experienceEndDateMonth + " / " + experienceEndDateYear}
+                  </span>
+                  <span>{experienceJobDescription}</span>
+                </div>
+                <div
+                  className={
+                    (templates === "template1" &&
+                      "yourresume__education-tamplate1") ||
+                    (templates === "template2" &&
+                      "yourresume__education-tamplate2") ||
+                    (templates === "template3" &&
+                      "yourresume__education-tamplate3") ||
+                    (templates === "template4" &&
+                      "yourresume__education-tamplate4")
+                  }
+                >
+                  <h3>Education</h3>
+                  <h4>{educationDegree}</h4>
+                  <span>
+                    {educationUniversityName} | {educationCity},{" "}
+                    {educationCountry} |{" " + educationGraduationDate}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className="yourresume__right-block">
-        <div className="yourresume__btnPdf">
-          <span onClick={printDocument}>Print</span>
+        <div onClick={printDocument} className="yourresume__btnPdf">
+          Generate PDF
         </div>
 
         <div className="yourresume__templates">

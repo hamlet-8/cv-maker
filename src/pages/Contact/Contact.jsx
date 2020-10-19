@@ -38,57 +38,63 @@ export const Contact = (props) => {
       setWarning({
         ...warning,
         message: "Fill in the Full Name field",
+        hasWarning: true,
         inputWarning: "fullName",
       });
     } else if (props.email.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Email field",
+        hasWarning: true,
         inputWarning: "email",
       });
     } else if (!emailValidate.test(String(props.email.trim()).toLowerCase())) {
       setWarning({
         ...warning,
         message: "Fill in the email field correctly",
+        hasWarning: true,
         inputWarning: "email",
       });
     } else if (props.streetAddress.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Street Address field",
+        hasWarning: true,
         inputWarning: "streetAddress",
       });
     } else if (props.city.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the City field",
+        hasWarning: true,
         inputWarning: "city",
       });
     } else if (props.country.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Country field",
+        hasWarning: true,
         inputWarning: "country",
       });
     } else if (props.phoneNumber.trim() === "") {
       setWarning({
         ...warning,
         message: "Fill in the Phone Number field",
+        hasWarning: true,
         inputWarning: "phoneNumber",
       });
     } else if (numberValidate.test(props.phoneNumber)) {
       setWarning({
         ...warning,
         message: "Only numbers are allowed",
+        hasWarning: true,
         inputWarning: "phoneNumber",
       });
-    } else {
-      setWarning({ ...warning, hasWarning: true });
     }
   };
 
   const toggleBtn = () => {
-    if (
+    return (
       props.fullName.trim() === "" ||
       props.email.trim() === "" ||
       !emailValidate.test(String(props.email.trim()).toLowerCase()) ||
@@ -97,11 +103,7 @@ export const Contact = (props) => {
       props.country.trim() === "" ||
       props.phoneNumber.trim() === "" ||
       numberValidate.test(props.phoneNumber)
-    ) {
-      return false;
-    } else {
-      return true;
-    }
+    );
   };
 
   return (
@@ -223,7 +225,7 @@ export const Contact = (props) => {
             </div>
           </div>
 
-          {warning.hasWarning === false && (
+          {warning.hasWarning && (
             <div
               className="alert alert-danger col-lg-12 text-center"
               role="alert"
@@ -232,12 +234,12 @@ export const Contact = (props) => {
             </div>
           )}
 
-          {toggleBtn() === false && (
+          {toggleBtn() && (
             <div className="contact__button" onClick={onContinueContact}>
-              Continue
+              fds
             </div>
           )}
-          {toggleBtn() === true && (
+          {!toggleBtn() && (
             <NavLink to="/experience" className="contact__button">
               Continue
             </NavLink>

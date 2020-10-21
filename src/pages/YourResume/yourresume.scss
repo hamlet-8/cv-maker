@@ -141,10 +141,9 @@ $green: #01bd01;
   position: absolute;
   top: 0;
   left: 0;
-  //width: 730px;
   width: 37%;
   min-height: 70%;
-  //z-index: -1;
+  z-index: -1;
 
   @media only screen and (max-width: 1400px) {
     & > div {

@@ -56,7 +56,7 @@ const YourResume = ({
       pdf.addImage(imgData, "PNG", 8, 8);
       // pdf.output("dataurlnewwindow");
       pdf.save("download.pdf");
-      document.body.removeChild(clist);
+      // document.body.removeChild(clist);
     });
   };
 

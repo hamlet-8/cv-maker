@@ -127,9 +127,8 @@ export const Contact = (props) => {
               <input
                 type="text"
                 id="full-name"
-                className={`form-control ${
-                  warning.inputWarning === "fullName" && "is-invalid"
-                }`}
+                className={`form-control ${warning.inputWarning === "fullName" && "is-invalid"
+                  }`}
                 value={props.fullName}
                 onChange={onFullNameChange}
               />
@@ -144,9 +143,8 @@ export const Contact = (props) => {
               <input
                 type="text"
                 id="email"
-                className={`form-control ${
-                  warning.inputWarning === "email" && "is-invalid"
-                }`}
+                className={`form-control ${warning.inputWarning === "email" && "is-invalid"
+                  }`}
                 value={props.email}
                 onChange={onEmailChange}
               />
@@ -163,9 +161,8 @@ export const Contact = (props) => {
               <input
                 type="text"
                 id="street-address"
-                className={`form-control ${
-                  warning.inputWarning === "streetAddress" && "is-invalid"
-                }`}
+                className={`form-control ${warning.inputWarning === "streetAddress" && "is-invalid"
+                  }`}
                 value={props.streetAddress}
                 onChange={onStreetAddressChange}
               />
@@ -180,9 +177,8 @@ export const Contact = (props) => {
               <input
                 type="text"
                 id="city"
-                className={`form-control ${
-                  warning.inputWarning === "city" && "is-invalid"
-                }`}
+                className={`form-control ${warning.inputWarning === "city" && "is-invalid"
+                  }`}
                 value={props.city}
                 onChange={onCityChange}
               />
@@ -197,9 +193,8 @@ export const Contact = (props) => {
               <input
                 type="text"
                 id="country"
-                className={`form-control ${
-                  warning.inputWarning === "country" && "is-invalid"
-                }`}
+                className={`form-control ${warning.inputWarning === "country" && "is-invalid"
+                  }`}
                 value={props.country}
                 onChange={onCountryChange}
               />
@@ -216,9 +211,8 @@ export const Contact = (props) => {
               <input
                 type="tel"
                 id="phone-number"
-                className={`form-control ${
-                  warning.inputWarning === "phoneNumber" && "is-invalid"
-                }`}
+                className={`form-control ${warning.inputWarning === "phoneNumber" && "is-invalid"
+                  }`}
                 value={props.phoneNumber}
                 onChange={onPhoneNumberChange}
               />
@@ -236,7 +230,7 @@ export const Contact = (props) => {
 
           {toggleBtn() && (
             <div className="contact__button" onClick={onContinueContact}>
-              fds
+              Continue
             </div>
           )}
           {!toggleBtn() && (

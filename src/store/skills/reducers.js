@@ -1,8 +1,7 @@
 import { SKILLS_CHANGE_AREA } from "./actions";
 
 const defaultState = {
-  skills:
-    "HTML, CSS, JavaScript, PHP, ReactJS, NodeJS, WordPress, Figma, Photoshop, Git, GitHub, GitLab, npm, yarn",
+  skills: "",
 };
 // skills: "",
 
